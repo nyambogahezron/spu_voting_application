@@ -1,0 +1,29 @@
+{% extends 'main.html' %} 
+{% block content %}
+<main>
+    {% for election in elections %}
+    <div class="container mt-4">
+        <div class="election-wrapper mb-5">
+            <h2 class="p-2">{{ election.name }} Results</h2>
+            <hr/>
+            {% for position in election.positions %}
+            <h2>{{ position.title }}</h2>
+            {% for running_mate in position.running_mates %}
+            <div class="candidate">
+                <div class="left">
+                    <img src="{{ running_mate.photo.url }}" alt="{{ running_mate.name }}">
+                </div>
+                <div class="right">
+                    <h3>{{ running_mate.name }}</h3>
+                    <p>{{ running_mate.total_votes }} votes</p>
+                    <p>{{ running_mate.percentage_votes|floatformat:"2" }}% of total votes</p>
+                </div>
+            </div>
+            {% endfor %}
+            <hr/>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}

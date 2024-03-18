@@ -1,0 +1,16 @@
+<nav>
+    <div class="navbar">
+        <ul class="navbar-links">
+            <div class="left">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'results' %}">Results</a></li>
+            </div>
+            <div class="right">
+                {% if request.user.is_authenticated %}
+                <li><a href="#">{{ request.user.name}}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+            </div>
+        </ul>
+    </div>
+</nav>

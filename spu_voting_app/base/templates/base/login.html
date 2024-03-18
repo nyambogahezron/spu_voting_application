@@ -1,0 +1,67 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/admin-interface/favicon/spu_logo_1.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+</head>
+
+<body>
+<div class="alert-container">
+    {% for message in messages %}
+        <div
+            class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+            id="alert"
+        >
+            {{ message }}
+        </div>
+        {% endfor %}
+</div>
+<section class="register-page">
+    <div class="register">
+        <h1>Login</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email Or Username</label>
+                <input type="text" id="email" name="email" required/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required/>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" onclick="togglePasswordVisibility()"/>Show
+                Password<br/>
+            </div>
+            <button type="submit">login</button>
+        </form>
+        <div style="margin-top: 15px">
+            Dont Have An Account ?<a href="{% url 'register' %}">Register</a>
+        </div>
+    </div>
+</section>
+<script>
+      setTimeout(function () {
+        var alerts = document.querySelectorAll("#alert");
+        alerts.forEach(function (alert) {
+          alert.style.display = "none";
+        });
+      }, 3000);
+      function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+        } else {
+          passwordInput.type = "password";
+        }
+      }
+
+
+</script>
+</body>
+</html>

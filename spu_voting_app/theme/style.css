@@ -1,0 +1,240 @@
+/*Global Styling*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+ul li {
+  text-decoration: none;
+  list-style: none;
+}
+ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  margin-bottom: 40px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* navbar */
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #333;
+  height: 60px;
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  transition: 0.3s all ease;
+}
+.navbar .navbar-links {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.navbar .navbar-links .right {
+  margin-right: 20px;
+}
+.navbar .navbar-links :where(.left, .right) {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar .navbar-links :where(.left li, .right li):hover {
+  color: blue;
+}
+
+/*register */
+.register-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.register {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.register h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+  padding: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/*main*/
+.election-title h2 {
+  font-size: 23px;
+  margin: 10px 0 30px 20px;
+  position: relative;
+  font-weight: 600;
+}
+.election-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  background: red;
+  height: 4px;
+  width: 100px;
+}
+.election-title h2::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  background: red;
+  height: 4px;
+  width: 60px;
+}
+.position-title {
+  padding: 10px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.candidate-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.candidate-card {
+  border: 1px solid #b4c2b2;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+}
+.candidate-card .image {
+  width: 250px;
+  height: 100%;
+}
+.candidate-card .image img {
+  width: 100%;
+  height: 100%;
+  transition: ease all 0.3s;
+  opacity: 1;
+  object-fit: fill;
+  object-position: bottom;
+}
+.candidate-card .image img:hover {
+  opacity: 0.8;
+}
+.candidate-card .card-body {
+  position: relative;
+  margin-left: 10px;
+  padding: 10px 30px;
+  background: #98e092;
+}
+.candidate-card .card-body .card-title {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+.candidate-card .card-body .card-text {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+.vote-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 95%;
+}
+
+/*results */
+.candidate {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.candidate img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.candidate h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.candidate p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

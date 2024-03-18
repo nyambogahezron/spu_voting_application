@@ -1,0 +1,48 @@
+<!doctype html>
+{% load static %}
+<html>
+  <head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="shortcut icon" href="images/admin-interface/favicon/spu_logo_1.png" type="image/x-icon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <div class="alert-container">
+      {% for message in messages %}
+        <div
+            class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+            id="alert"
+        >
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    <section class="register-page">
+      <div class="register">
+        <h1>Register</h1>
+        <form method="post">
+          {% csrf_token %} {% for field in form %}
+          <div class="form-group">
+            <label for="room_name">{{field.label}}</label>
+            {{field}}
+          </div>
+          {% endfor %}
+          <button type="submit">Register</button>
+        </form>
+        <div style="margin-top: 15px">
+          Have An Account ?<a href="{% url 'login' %}">Login</a>
+        </div>
+      </div>
+    </section>
+    <script>
+      setTimeout(function () {
+        var alerts = document.querySelectorAll("#alert");
+        alerts.forEach(function (alert) {
+          alert.style.display = "none";
+        });
+      }, 3000);
+    </script>
+  </body>
+</html>
